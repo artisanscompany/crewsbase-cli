@@ -15,8 +15,6 @@ import (
 	"github.com/spf13/cobra"
 )
 
-var tokenFlag string
-
 var authCmd = &cobra.Command{
 	Use:   "auth",
 	Short: "Manage authentication",
@@ -26,8 +24,9 @@ var authLoginCmd = &cobra.Command{
 	Use:   "login",
 	Short: "Authenticate with Crewsbase",
 	RunE: func(cmd *cobra.Command, args []string) error {
-		if tokenFlag != "" {
-			if err := config.SetToken(tokenFlag); err != nil {
+		loginToken, _ := cmd.Flags().GetString("token")
+		if loginToken != "" {
+			if err := config.SetToken(loginToken); err != nil {
 				return fmt.Errorf("failed to save token: %w", err)
 			}
 			fmt.Println("Token saved successfully.")
@@ -136,7 +135,7 @@ func openBrowser(url string) {
 }
 
 func init() {
-	authLoginCmd.Flags().StringVar(&tokenFlag, "token", "", "API token (for non-interactive auth)")
+	authLoginCmd.Flags().String("token", "", "API token (for non-interactive auth)")
 	authCmd.AddCommand(authLoginCmd)
 	authCmd.AddCommand(authLogoutCmd)
 	authCmd.AddCommand(authStatusCmd)

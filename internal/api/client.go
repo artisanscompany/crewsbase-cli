@@ -17,6 +17,16 @@ import (
 // Version is set by the cmd package at init time
 var Version = "dev"
 
+// APIError represents an API error with an exit code
+type APIError struct {
+	Code    int
+	Message string
+}
+
+func (e *APIError) Error() string {
+	return e.Message
+}
+
 type Client struct {
 	baseURL    string
 	token      string
@@ -127,11 +137,11 @@ func (c *Client) do(method, path string, params map[string]string, body interfac
 	}
 
 	if resp.StatusCode == http.StatusUnauthorized {
-		return nil, nil, fmt.Errorf("authentication failed. Run `crewsbase auth login` to re-authenticate")
+		return nil, nil, &APIError{Code: 2, Message: "authentication failed. Run `crewsbase auth login` to re-authenticate"}
 	}
 
 	if resp.StatusCode == http.StatusNotFound {
-		return nil, nil, fmt.Errorf("not found")
+		return nil, nil, &APIError{Code: 3, Message: "not found"}
 	}
 
 	if resp.StatusCode >= 400 {
