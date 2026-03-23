@@ -1,0 +1,38 @@
+# .goreleaser.yaml
+version: 2
+
+builds:
+  - main: ./cmd/crewsbase
+    binary: crewsbase
+    ldflags:
+      - -s -w
+      - -X github.com/crewsbase/crewsbase-cli/internal/cmd.Version={{.Version}}
+      - -X github.com/crewsbase/crewsbase-cli/internal/cmd.Commit={{.ShortCommit}}
+    goos:
+      - darwin
+      - linux
+      - windows
+    goarch:
+      - amd64
+      - arm64
+
+brews:
+  - repository:
+      owner: crewsbase
+      name: homebrew-tap
+    homepage: https://crewsbase.app
+    description: Crewsbase CLI
+    install: |
+      bin.install "crewsbase"
+
+archives:
+  - format: tar.gz
+    format_overrides:
+      - goos: windows
+        format: zip
+
+checksum:
+  name_template: checksums.txt
+
+changelog:
+  sort: asc
