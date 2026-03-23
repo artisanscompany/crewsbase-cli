@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/crewsbase/crewsbase-cli/internal/api"
-	"github.com/crewsbase/crewsbase-cli/internal/cmd/crm"
+	"github.com/artisanscompany/crewsbase-cli/internal/api"
+	"github.com/artisanscompany/crewsbase-cli/internal/cmd/crm"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 )

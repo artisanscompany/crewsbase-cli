@@ -11,7 +11,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/crewsbase/crewsbase-cli/internal/config"
+	"github.com/artisanscompany/crewsbase-cli/internal/config"
 )
 
 // Version is set by the cmd package at init time

@@ -1,4 +1,4 @@
-module github.com/crewsbase/crewsbase-cli
+module github.com/artisanscompany/crewsbase-cli
 
 go 1.26.1
 

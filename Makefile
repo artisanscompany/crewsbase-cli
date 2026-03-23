@@ -2,7 +2,7 @@
 
 VERSION ?= dev
 COMMIT := $(shell git rev-parse --short HEAD 2>/dev/null || echo "unknown")
-LDFLAGS := -ldflags "-X github.com/crewsbase/crewsbase-cli/internal/cmd.Version=$(VERSION) -X github.com/crewsbase/crewsbase-cli/internal/cmd.Commit=$(COMMIT) -X github.com/crewsbase/crewsbase-cli/internal/api.Version=$(VERSION)"
+LDFLAGS := -ldflags "-X github.com/artisanscompany/crewsbase-cli/internal/cmd.Version=$(VERSION) -X github.com/artisanscompany/crewsbase-cli/internal/cmd.Commit=$(COMMIT) -X github.com/artisanscompany/crewsbase-cli/internal/api.Version=$(VERSION)"
 
 build:
 	go build $(LDFLAGS) -o bin/crewsbase ./cmd/crewsbase

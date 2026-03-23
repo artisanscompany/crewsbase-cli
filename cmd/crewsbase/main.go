@@ -5,8 +5,8 @@ import (
 	"errors"
 	"os"
 
-	"github.com/crewsbase/crewsbase-cli/internal/api"
-	"github.com/crewsbase/crewsbase-cli/internal/cmd"
+	"github.com/artisanscompany/crewsbase-cli/internal/api"
+	"github.com/artisanscompany/crewsbase-cli/internal/cmd"
 )
 
 func main() {

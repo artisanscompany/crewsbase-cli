@@ -10,11 +10,11 @@ Command-line interface for [Crewsbase](https://crewsbase.app).
 
 ### Binary
 
-Download from [GitHub Releases](https://github.com/crewsbase/crewsbase-cli/releases).
+Download from [GitHub Releases](https://github.com/artisanscompany/crewsbase-cli/releases).
 
 ### Go
 
-    go install github.com/crewsbase/crewsbase-cli/cmd/crewsbase@latest
+    go install github.com/artisanscompany/crewsbase-cli/cmd/crewsbase@latest
 
 ## Authentication
 

@@ -4,7 +4,7 @@ package cmd
 import (
 	"fmt"
 
-	"github.com/crewsbase/crewsbase-cli/internal/config"
+	"github.com/artisanscompany/crewsbase-cli/internal/config"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 )

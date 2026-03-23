@@ -6,8 +6,8 @@ builds:
     binary: crewsbase
     ldflags:
       - -s -w
-      - -X github.com/crewsbase/crewsbase-cli/internal/cmd.Version={{.Version}}
-      - -X github.com/crewsbase/crewsbase-cli/internal/cmd.Commit={{.ShortCommit}}
+      - -X github.com/artisanscompany/crewsbase-cli/internal/cmd.Version={{.Version}}
+      - -X github.com/artisanscompany/crewsbase-cli/internal/cmd.Commit={{.ShortCommit}}
     goos:
       - darwin
       - linux
@@ -18,7 +18,7 @@ builds:
 
 brews:
   - repository:
-      owner: crewsbase
+      owner: artisanscompany
       name: homebrew-tap
     homepage: https://crewsbase.app
     description: Crewsbase CLI

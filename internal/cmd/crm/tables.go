@@ -5,8 +5,8 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/crewsbase/crewsbase-cli/internal/api"
-	"github.com/crewsbase/crewsbase-cli/internal/output"
+	"github.com/artisanscompany/crewsbase-cli/internal/api"
+	"github.com/artisanscompany/crewsbase-cli/internal/output"
 	"github.com/spf13/cobra"
 )
 
