@@ -67,6 +67,31 @@ func (c *Client) Patch(path string, body interface{}) ([]byte, http.Header, erro
 	return c.do("PATCH", path, nil, body)
 }
 
+// ExecuteTool calls the tool execution endpoint and returns the parsed result
+func (c *Client) ExecuteTool(toolName string, arguments map[string]interface{}) (interface{}, error) {
+	body, _, err := c.Post("/tools/execute", map[string]interface{}{
+		"tool":      toolName,
+		"arguments": arguments,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	var resp struct {
+		Data  interface{} `json:"data"`
+		Error string      `json:"error"`
+	}
+	if err := json.Unmarshal(body, &resp); err != nil {
+		return nil, fmt.Errorf("failed to parse response: %w", err)
+	}
+
+	if resp.Error != "" {
+		return nil, fmt.Errorf("%s", resp.Error)
+	}
+
+	return resp.Data, nil
+}
+
 func (c *Client) Delete(path string) ([]byte, http.Header, error) {
 	return c.do("DELETE", path, nil, nil)
 }
